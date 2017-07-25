@@ -1,0 +1,10 @@
+create database ssh;
+use ssh;
+
+
+constraint fk_pid foreign key(pid) references Pharmaceutical(pid),
+
+
+constraint fk_pid foreign key(pid) references table(pid)
+
+SSH验证码技术文档http://blog.csdn.net/zh15732621679/article/details/55006378
