@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate根标签 -->
+<hibernate-mapping>
+	<!-- Hibernate映射表 -->
+	<class name="com.muke.employee.domain.Department" table="department">
+		<!-- 表的主键 -->
+		<id name="did" column="did">
+		<!-- 表的主键设置 -->
+			<generator class="native"/>
+		</id>
+		<!-- 表的其他属性 -->
+		<property name="dname" column="dname" length="20"/>
+		<property name="ddesc" column="ddesc" length="100"></property>
+		<!-- 关联关系映射配置 -->
+		<set name="employees" cascade="delete" inverse="true">
+			<key column="dno"/><!-- 外键名称 -->
+			<one-to-many class="com.muke.employee.domain.Employee"/>
+		</set>
+	</class>
+</hibernate-mapping>
